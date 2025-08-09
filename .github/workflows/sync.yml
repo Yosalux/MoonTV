@@ -14,7 +14,9 @@ jobs:
     name: Sync latest commits from upstream repo
     runs-on: ubuntu-latest
     if: ${{ github.event.repository.fork }}
-
+    permissions:
+      contents: write # 写入仓库内容的权限
+      workflows: write # 写入工作流文件的权限
     steps:
       # Step 1: run a standard checkout action
       - name: Checkout target repo
